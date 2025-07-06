@@ -16,11 +16,11 @@ def daten_aus_bild_extrahieren(bild_pfad):
 
             while len(binary_daten) >= 8:
                 byte = binary_daten[:8]
-                binary_data = binary_daten[8:]
+                binary_daten = binary_daten[8:]
                 char = chr(int(byte, 2))
                 versteckte_nachricht += char
                 if versteckte_nachricht.endswith("#"):
-                    break
+                    return versteckte_nachricht[:-1]
         return "[Keine Daten gefunden]"
     except Exception as e:
         return f"[Fehler gefunden als: {e}]"
